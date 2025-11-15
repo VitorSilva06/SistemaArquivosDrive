@@ -1,0 +1,71 @@
+- Aposentadoria por incapacidade permanente, aposentadoria por invalidez, Auxílio por incapacidade temporária (auxílio doença):
+    {
+    Identidade
+    Cpf
+    Comprovante de Residência
+    Carteiras de trabalho(Todas)
+    Senha do site "MEU INSS":
+    Extrato Analítico do FGTS
+    Laudos médicos,exames, receitas
+    PPP(Insalubridade ou periculosidade)
+
+    Caso ja tenha essa informação:
+    Infomrar numero do processo.
+    Cat(Se tiver sofrido um acidente)
+    Carnês do INSS
+    }
+
+- ATENDIMENTO BPC/LOAS
+    {SENHA DO SITE MEU INSS (essa senha o requerente consegue buscar em qualquer agência do INSS); 
+    RG, CPF, CARTEIRA DE TRABALHO, COMPROVANTE DE RESIDÊNCIA DE TODAS AS PESSOAS QUE MORAM NA MESMA RESIDÊNCIA QUE O REQUERENTE; 
+    COMPROVANTE DE INSCRIÇÃO NO CADASTRO DO CAD ÚNICO;  OTAS DE COMPRAS COM ALIMENTAÇÃO, GASTOS GERAIS, DESPESAS MÉDICAS, GASTOS COM O TRATAMENTO DA DEFICIÊNCIA, COMPROVANTES DOS GASTOS MENSAIS QUE A FAMÍLIA TEM NO MÊS, LUZ, ÁGUA, TELEFONE; 
+    COMPROVANTES DE AJUDA QUE O REQUERENTE RECEBE, A TÍTULO DE EXEMPLO, DECLARAÇÕES DE IGREJAS QUE DÃO CESTA BÁSICA,  DECLARAÇÕES DE AJUDA DO PRÓPRIO SETOR PÚBLICO; 
+    COMPROVANTE DE PENSÃO ALIMENTÍCIA CASO HAJA O RECEBIMENTO; 
+    FOTOS DA RESIDÊNCIA, DOS MÓVEIS; 
+    EM CASOS DA DEFICIÊNCIA LAUDOS MÉDICOS, É INDISPENSÁVEL QUE O LAUDO CONSTE A CID DA DOENÇA.
+    caso não possua algum desses documentos, no dia do seu atendimento trazer a documentação que possuir.}
+
+
+- Trabalhista:
+    {
+        Identidade
+        CPF
+        Comprovante de Residência
+        Contracheques.
+        Extrato Analítico do FGTS
+        Extratos mostrando os salários
+        fotografias do trabalho
+        Mensagens de Whatsapp
+        Termo de recisão (TRCT)
+        Recibo de férias
+    }
+
+
+- Pensão por morte para esposa (o):
+    {
+        Certidão de casamento
+        CNIS do(a) falecido(a) ou carteira de TRABALHO
+        RG
+        CPF
+        *Os comprovantes de residencia não pode ser superiores a dois anos da data do óbito*
+        Comprovamente de residência do(a) falecido(a)
+        Comprovamente de residência do(a) cônjuge sobrevivente
+        RG (da pessoa que está requerendo/pedindo a pensão por morte).
+        Senha do "Meu INSS" da pessoa que está requerendo/pedindo a pensão por morte
+        Certidão de óbito
+        Laudos médicos que comprovem condição(Caso o cônjuge sobrevivente possua alguma incapacidade permanente ou deficiência):
+        Caso o falecimento tenha ocorrido por acidente de qualquer natureza(Documentos que 
+        comprovem circunstância (ex: Boletim de ocorrência, laudos médicos demostrando a questão de que tenha tido acidente))
+    
+    }
+
+
+Pensão por morte para companheira (o):
+    {
+        - RG E CPF DA PESSOA QUE DESEJA SOLICITAR O BENEFÍCIO
+        - RG E CPF DO FALECIDO(A)
+        - CERTIDÃO DE ÓBITO
+        - COMPROVANTE DE RESIDÊNCIA
+        - DOCUENTOS QUE COMPROVEM A UNIÃO ESTÁVEL: (certidão de nascimento de filho em comum); prova de mesmo domicílio (COMPROVANTE DE RESIÊNCIA DO(A) FALECIDO(A) E DO(A) REQUERENTE); conta bancária conjunta; declaração de Imposto de Renda em que um conste como dependente do outro; apólice de seguro em que um seja instituidor e o outro seja beneficiário; ficha de tratamento em instituição médica em que o companheiro conste como responsável pelo segurado, ou vice-versa; cadastro no CadÚnico; entre outros documentos que possam servir para essa comprovação.
+        
+    }

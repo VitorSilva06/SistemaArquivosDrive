@@ -1,0 +1,7 @@
+- Cliente acessa o site e prenche o fomulario com infomções dele.
+- Abre novos campos conforme o serviço escolhido (processo trabalhista,, etc...).
+- Confrerir a qualidade da foto.
+- Transforma em pdf.
+- Criar um Realtorio em txt falando oque foi preenchido e não foi.
+- Acessa o Drive e cria uma pasta com as informções do cliente.
+- Salva tudo e delvolve um feedback pro cliente. (Arquivos encaminhado)

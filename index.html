@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atendimento Jurídico</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2b4c7e;
+            --primary-dark: #1f3658;
+            --bg: #f5f7fb;
+            --card-bg: #ffffff;
+            --radius: 14px;
+            --spacing-unit: 20px;
+        }
+        
+        /* 1. Reset Básico e Fontes */
+        body {
+            margin: 0;
+            font-family: "Inter", Arial, sans-serif;
+            background: var(--bg);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* 2. Header */
+        header {
+            background: var(--primary);
+            color: white;
+            padding: calc(var(--spacing-unit) * 1.5) var(--spacing-unit);
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* 3. Container Principal */
+        .container {
+            max-width: 950px;
+            margin: var(--spacing-unit) auto;
+            background: var(--card-bg);
+            padding: calc(var(--spacing-unit) * 1.5);
+            border-radius: var(--radius);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            box-sizing: border-box;
+        }
+        
+        /* 4. Títulos */
+        h2 {
+            margin-top: 0;
+            margin-bottom: var(--spacing-unit);
+            font-size: 1.7rem;
+            color: var(--primary-dark);
+        }
+        h3 {
+             font-size: 1.3rem;
+             color: var(--primary);
+             margin-bottom: var(--spacing-unit);
+        }
+        
+        /* 5. Organização do Formulário (Form Grid) */
+        .form-grid {
+            display: grid;
+            gap: var(--spacing-unit);
+            grid-template-columns: 1fr; /* Padrão Mobile */
+        }
+
+        /* Desktop/Tablet (768px+) - 2 colunas para dados iniciais */
+        @media (min-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .form-grid .full-width {
+                grid-column: 1 / -1; 
+            }
+        }
+        
+        /* 6. Grupo de Formulário e Inputs */
+        .form-group {
+            margin-bottom: 0;
+        }
+
+        label {
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: block;
+            font-size: 0.95rem;
+        }
+
+        input:not([type="file"]), select, textarea {
+            width: 100%;
+            padding: 14px;
+            border-radius: var(--radius);
+            border: 1px solid #ccc;
+            font-size: 1rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            box-sizing: border-box;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(43, 76, 126, 0.1);
+        }
+        
+        /* 7. Document Box (Caixa de Documentos) */
+        .doc-box {
+            background: #e9eff7;
+            border-left: 6px solid var(--primary);
+            padding: var(--spacing-unit);
+            border-radius: var(--radius);
+            margin-top: var(--spacing-unit);
+            grid-column: 1 / -1;
+            /* Usamos Grid aqui dentro para organizar os uploads em 2 colunas no desktop */
+            display: grid; 
+            gap: 15px; 
+            grid-template-columns: 1fr; /* Padrão Mobile: 1 coluna */
+        }
+        
+        /* Desktop/Tablet (Documentos em 2 colunas) */
+        @media (min-width: 650px) {
+            .doc-box {
+                grid-template-columns: 1fr 1fr;
+            }
+            .doc-box h3 {
+                grid-column: 1 / -1; /* Título do doc-box sempre ocupa 100% */
+            }
+        }
+
+        /* Estilo para inputs de arquivo */
+        .doc-box input[type="file"] {
+            margin-top: 5px;
+            padding: 5px 0;
+            border: none;
+            box-sizing: border-box;
+            font-size: 0.9rem;
+        }
+
+        .hidden {
+            display: none;
+        }
+        
+        /* 8. Botão de Envio */
+        button {
+            margin-top: var(--spacing-unit);
+            background: var(--primary);
+            color: white;
+            padding: 16px;
+            width: 100%;
+            border: none;
+            border-radius: var(--radius);
+            font-size: 1.15rem;
+            cursor: pointer;
+            font-weight: 700;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+        
+        button:hover {
+            background: var(--primary-dark);
+        }
+        
+        button:active {
+             transform: scale(0.99);
+        }
+        
+        /* 9. Responsividade Específica (Celular) */
+        @media (max-width: 600px) {
+            header {
+                font-size: 1.5rem;
+                padding: var(--spacing-unit);
+            }
+            .container {
+                margin: var(--spacing-unit) 10px;
+                padding: var(--spacing-unit);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>Atendimento Jurídico Online</header>
+
+<div class="container">
+    <h2>Preencha Seus Dados 📝</h2>
+
+    <form id="mainForm">
+        <div class="form-grid">
+            
+            <div class="form-group">
+                <label for="nome">Nome Completo</label>
+                <input id="nome" type="text" placeholder="Seu nome" required />
+            </div>
+
+            <div class="form-group">
+                <label for="telefone">Telefone</label>
+                <input id="telefone" type="text" placeholder="(DDD) 00000-0000" required />
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input id="email" type="email" placeholder="seuemail@gmail.com" required />
+            </div>
+
+            <div class="form-group">
+                <label for="serviceSelect">Tipo de Serviço</label>
+                <select id="serviceSelect" required>
+                    <option value="">Selecione...</option>
+                    <option value="inss">Aposentadoria / Auxílios INSS</option>
+                    <option value="bpc">BPC / LOAS</option>
+                    <option value="trabalhista">Processo Trabalhista</option>
+                    <option value="pensao_conjuge">Pensão por Morte - Cônjuge</option>
+                    <option value="pensao_companheiro">Pensão por Morte - Companheiro(a)</option>
+                </select>
+            </div>
+            
+            <div id="inss" class="hidden doc-box full-width">
+                <h3>Documentos Necessários - Aposentadoria / Auxílios INSS</h3>
+                
+                <div class="form-group">
+                    <label>RG (Identidade)<input type="file" multiple></label>
+                </div>
+                <div class="form-group">
+                    <label>CPF<input type="file" multiple></label>
+                </div>
+                <div class="form-group">
+                    <label>Comprovante de Residência<input type="file" multiple></label>
+                </div>
+                <div class="form-group">
+                    <label>Carteiras de Trabalho<input type="file" multiple></label>
+                </div>
+                <div class="form-group">
+                    <label>Senha do Meu INSS<input type="file" multiple></label>
+                </div>
+                <div class="form-group">
+                    <label>Extrato FGTS<input type="file" multiple></label>
+                </div>
+                <div class="form-group">
+                    <label>Laudos médicos<input type="file" multiple></label>
+                </div>
+                <div class="form-group">
+                    <label>PPP (Perfil Profissiográfico Previdenciário)<input type="file" multiple></label>
+                </div>
+            </div>
+
+            <div id="bpc" class="hidden doc-box full-width">
+                <h3>Documentos Necessários - BPC / LOAS</h3>
+                
+                <div class="form-group">
+                    <label>Senha do Meu INSS<input type="file" multiple></label>
+                </div>
+                <div class="form-group">
+                    <label>RG e CPF do Requerente<input type="file" multiple></label>
+                </div>
+                <div class="form-group">
+                    <label>Documentos de **todos** os moradores da residência<input type="file" multiple></label>
+                </div>
+                <div class="form-group">
+                    <label>Comprovantes de gastos (luz, água, aluguel, etc.)<input type="file" multiple></label>
+                </div>
+                <div class="form-group">
+                    <label>CadÚnico (Cadastro Único)<input type="file" multiple></label>
+                </div>
+                <div class="form-group">
+                    <label>Laudos médicos com CID<input type="file" multiple></label>
+                </div>
+            </div>
+
+            <div id="trabalhista" class="hidden doc-box full-width">
+                <h3>Documentos Necessários - Processo Trabalhista</h3>
+                
+                <div class="form-group">
+                    <label>RG<input type="file" multiple></label>
+                </div>
+                <div class="form-group">
+                    <label>CPF<input type="file" multiple></label>
+                </div>
+                <div class="form-group">
+                    <label>Comprovante de residência<input type="file" multiple></label>
+                </div>
+                <div class="form-group">
+                    <label>Contracheques / Holerites<input type="file" multiple></label>
+                </div>
+                <div class="form-group">
+                    <label>Extrato FGTS<input type="file" multiple></label>
+                </div>
+                <div class="form-group">
+                    <label>Aviso Prévio (se houver)<input type="file" multiple></label>
+                </div>
+                <div class="form-group">
+                    <label>TRCT (Termo de Rescisão)<input type="file" multiple></label>
+                </div>
+                <div class="form-group">
+                    <label>Mensagens e Outras Provas (prints, e-mails, etc.)<input type="file" multiple></label>
+                </div>
+            </div>
+
+            <div id="pensao_conjuge" class="hidden doc-box full-width">
+                <h3>Documentos Necessários - Pensão por Morte (Cônjuge)</h3>
+                
+                <div class="form-group">
+                    <label>Certidão de casamento<input type="file" multiple></label>
+                </div>
+                <div class="form-group">
+                    <label>Certidão de óbito do falecido<input type="file" multiple></label>
+                </div>
+                <div class="form-group">
+                    <label>RG do Cônjuge (Requerente)<input type="file" multiple></label>
+                </div>
+                <div class="form-group">
+                    <label>CPF do Cônjuge (Requerente)<input type="file" multiple></label>
+                </div>
+                <div class="form-group">
+                    <label>RG e CPF do falecido<input type="file" multiple></label>
+                </div>
+                <div class="form-group">
+                    <label>Comprovante de residência<input type="file" multiple></label>
+                </div>
+                <div class="form-group">
+                    <label>Senha do Meu INSS<input type="file" multiple></label>
+                </div>
+            </div>
+
+            <div id="pensao_companheiro" class="hidden doc-box full-width">
+                <h3>Documentos Necessários - Pensão por Morte (Companheiro/a)</h3>
+                
+                <div class="form-group">
+                    <label>Documentos pessoais (RG/CPF) do(a) companheiro(a) sobrevivente<input type="file" multiple></label>
+                </div>
+                <div class="form-group">
+                    <label>Certidão de óbito do falecido<input type="file" multiple></label>
+                </div>
+                <div class="form-group">
+                    <label>Comprovantes de união estável (pelo menos 3)<input type="file" multiple></label>
+                </div>
+                <div class="form-group">
+                    <label>Outras Provas da União Estável (fotos, depoimentos, etc.)<input type="file" multiple></label>
+                </div>
+            </div>
+            
+        </div>
+        
+        <button type="submit">Enviar Solicitação</button>
+    </form>
+</div>
+
+<script>
+    const select = document.getElementById("serviceSelect");
+    
+    select.addEventListener("change", () => {
+        // Esconde todos os blocos de documentos
+        document.querySelectorAll('.doc-box').forEach(el => {
+            el.classList.add('hidden');
+            el.style.display = 'none';
+        });
+
+        // Mostra o bloco selecionado
+        const value = select.value;
+        if (value) {
+            const selectedElement = document.getElementById(value);
+            if(selectedElement) {
+                selectedElement.classList.remove('hidden');
+                selectedElement.style.display = 'grid'; // Mudado para display: grid
+            }
+        }
+    });
+    
+    // Inicializa escondendo todos
+    document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll('.doc-box').forEach(el => el.style.display = 'none');
+    });
+
+    // Opcional: Impedir envio e mostrar alerta
+    const form = document.getElementById("mainForm");
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Formulário enviado com sucesso! Aguarde nosso contato.');
+    });
+</script>
+
+</body>
+</html>
