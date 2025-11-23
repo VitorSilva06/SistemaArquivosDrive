@@ -4,10 +4,9 @@ services:
     env: python
     plan: free
     region: oregon
-    buildCommand: |
-      cd backend && pip install -r requirements.txt
-    startCommand: |
-      cd backend && gunicorn main:app --bind 0.0.0.0:10000 --workers 2 --timeout 120
+    rootDir: backend
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "uvicorn main:app --host 0.0.0.0 --port $PORT"
     autoDeploy: true
     disk:
       name: token-storage
@@ -16,8 +15,6 @@ services:
     envVars:
       - key: PYTHON_VERSION
         value: 3.11
-      - key: PORT
-        value: 10000
       - key: GOOGLE_DRIVE_ROOT_FOLDER_ID
         sync: false
       - key: GOOGLE_CLIENT_SECRET_JSON
@@ -26,14 +23,11 @@ services:
         value: INFO
     healthCheckPath: /health
 
-  - type: static
-    name: sistema-arquivos-drive-frontend
-    env: static
-    plan: free
-    region: oregon
-    buildCommand: |
-      cd frontend && npm ci && npm run build
-    staticPublishPath: frontend/dist
+staticSites:
+  - name: sistema-arquivos-drive-frontend
+    rootDir: frontend
+    buildCommand: "npm ci && npm run build"
+    staticPublishPath: dist
     autoDeploy: true
     headers:
       - path: /*
