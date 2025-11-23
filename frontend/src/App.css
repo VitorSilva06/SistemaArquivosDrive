@@ -1,0 +1,634 @@
+.page {
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+header {
+  background: var(--primary);
+  color: white;
+  padding: var(--spacing-unit);
+  text-align: center;
+  height: 160px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+header img {
+  max-height: 140px;
+  height: 140px;
+  width: auto;
+  object-fit: contain;
+}
+
+.container {
+  max-width: 950px;
+  margin: var(--spacing-unit) auto;
+  background: var(--card-bg);
+  padding: calc(var(--spacing-unit) * 1.5);
+  border-radius: var(--radius);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: calc(var(--spacing-unit) / 1.5);
+  font-size: 1.8rem;
+  color: var(--primary-dark);
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+  text-transform: capitalize;
+}
+
+h3 {
+  font-size: 1.2rem;
+  color: var(--primary);
+  margin-top: 0;
+  margin-bottom: var(--spacing-unit);
+  font-weight: 700;
+  text-transform: none;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-grid {
+  display: grid;
+  gap: var(--spacing-unit);
+  grid-template-columns: 1fr;
+}
+
+.form-group {
+  margin-bottom: 0;
+}
+
+.form-group.has-rejected {
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #fff5f5;
+  border: 2px solid #fecaca;
+}
+
+.form-group.has-rejected label {
+  color: #dc2626;
+  font-weight: 700;
+}
+
+.form-group.has-rejected input[type="file"] {
+  border-color: #dc2626;
+  background-color: #fef2f2;
+}
+
+.form-group.has-rejected input[type="file"]:focus {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.1);
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: block;
+  font-size: 0.9rem;
+  color: #444;
+  text-transform: none;
+}
+
+input:not([type="file"]),
+select,
+textarea {
+  width: 100%;
+  padding: 14px;
+  border-radius: var(--radius);
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+  background-color: #fcfcfc;
+  text-transform: none;
+}
+
+/* Remove maiúsculas de opções do select */
+select option {
+  text-transform: none;
+}
+
+/* Converte textos em maiúsculas para formato normal */
+select,
+.doc-box h3,
+label {
+  text-transform: none;
+}
+
+/* Garante que textos dentro de options sejam exibidos normalmente */
+select option {
+  text-transform: none;
+  font-weight: normal;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--primary);
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(15, 10, 10, 0.1);
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+.doc-box {
+  background: #e9eff7;
+  border-left: 6px solid var(--primary);
+  padding: var(--spacing-unit);
+  border-radius: var(--radius);
+  margin-top: var(--spacing-unit);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.doc-box h3 {
+  color: var(--primary-dark);
+  font-size: 1.4rem;
+  margin-top: 0;
+  margin-bottom: 5px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #c0c0c0;
+  text-transform: none;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.notice {
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: #555;
+  background: #e0e7f1;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.6;
+}
+
+.doc-box input[type="file"] {
+  margin-top: 5px;
+  padding: 5px 0;
+  border: none;
+  font-size: 0.85rem;
+}
+
+/* Contêiner de controles do input de arquivo */
+.file-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Ações por item (botão + pequeno embaixo) */
+.file-item-actions {
+  display: flex;
+  justify-content: center;
+  padding: 6px 0 10px 0;
+}
+
+.btn-add-more-small {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  background: var(--primary);
+  color: #fff;
+  font-size: 20px;
+  line-height: 0;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-add-more-small:hover {
+  background: var(--primary-dark);
+}
+
+.btn-add-more-small:active {
+  transform: scale(0.98);
+}
+
+@media (max-width: 480px) {
+  .file-item-actions {
+    padding: 6px 0 8px 0;
+  }
+}
+
+.file-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px dashed #aaa;
+  border-radius: 8px;
+  background: #f0f0f8;
+}
+
+.file-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+  background-color: #fff;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: #333;
+  border-left: 3px solid var(--primary);
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 480px) {
+  .file-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+}
+
+.file-item.empty {
+  justify-content: center;
+  font-style: italic;
+  color: #666;
+}
+
+/* Itens rejeitados: vermelho */
+.file-item.rejected {
+  background-color: #fee;
+  border-left-color: #d32f2f;
+  color: #c62828;
+}
+
+/* Itens aceitos: verde sutil */
+.file-item.accepted {
+  background-color: #e8f5e9; /* verde claro */
+  border-left-color: #2e7d32; /* verde escuro */
+}
+
+/* Botão específico para troca de rejeitados */
+.btn-replace-rejected {
+  background: #d32f2f;
+}
+
+.btn-replace-rejected:hover {
+  background: #b71c1c;
+}
+
+.rejection-info {
+  font-size: 0.85rem;
+  color: #d32f2f;
+  font-weight: 500;
+  flex: 1;
+  text-align: right;
+  margin-right: 10px;
+  word-break: break-word;
+}
+
+@media (max-width: 480px) {
+  .rejection-info {
+    font-size: 0.75rem;
+    text-align: left;
+    width: 100%;
+    margin-top: 4px;
+    margin-right: 0;
+  }
+}
+
+.file-name {
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 70%;
+  flex: 1;
+  min-width: 0; /* Permite que o texto seja cortado */
+}
+
+@media (max-width: 480px) {
+  .file-name {
+    max-width: 100%;
+    white-space: normal;
+    word-break: break-word;
+    margin-bottom: 4px;
+  }
+}
+
+.file-size {
+  font-size: 0.8rem;
+  color: #555;
+}
+
+.feedback {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  text-align: center;
+}
+
+.feedback.success {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.feedback.warning {
+  background: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeaa7;
+}
+
+.feedback.error {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+button {
+  margin-top: calc(var(--spacing-unit) * 1.5);
+  background: var(--primary);
+  color: white;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 1.2rem;
+  cursor: pointer;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
+}
+
+button:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+button:hover:not(:disabled) {
+  background: var(--primary-dark);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  }
+
+button:active:not(:disabled) {
+  transform: scale(0.99);
+}
+
+/* ============================================
+   RESPONSIVIDADE - MOBILE FIRST
+   ============================================ */
+
+/* Mobile pequeno (até 480px) */
+@media (max-width: 480px) {
+  header {
+    height: 110px;
+    padding: 10px 5px;
+  }
+
+  header img {
+    max-height: 90px;
+    height: 90px;
+  }
+
+  .container {
+    margin: 10px 5px;
+    padding: 15px;
+    border-radius: 10px;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+  }
+
+  h3 {
+    font-size: 1rem;
+  }
+
+  .doc-box h3 {
+    font-size: 1.1rem;
+    line-height: 1.4;
+  }
+
+  .notice {
+    font-size: 0.85rem;
+    padding: 12px;
+    line-height: 1.5;
+  }
+
+  label {
+    font-size: 0.85rem;
+  }
+
+  input:not([type="file"]),
+  select,
+  textarea {
+    padding: 12px;
+    font-size: 0.95rem;
+  }
+
+  .form-grid {
+    gap: 15px;
+  }
+
+  .doc-box {
+    padding: 15px;
+    gap: 12px;
+  }
+
+  .file-list {
+    padding: 8px;
+  }
+
+  .file-item {
+    padding: 8px;
+    font-size: 0.85rem;
+    flex-wrap: wrap;
+  }
+
+  .file-name {
+    max-width: 100%;
+    margin-bottom: 4px;
+  }
+
+  .rejection-info {
+    font-size: 0.75rem;
+    text-align: left;
+    width: 100%;
+    margin-top: 4px;
+    margin-right: 0;
+  }
+
+  .file-size {
+    font-size: 0.75rem;
+  }
+
+  button {
+    padding: 14px;
+    font-size: 1rem;
+    margin-top: 20px;
+  }
+
+  .feedback {
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile médio (481px - 600px) */
+@media (min-width: 481px) and (max-width: 600px) {
+  header {
+    height: 120px;
+    padding: 12px;
+  }
+
+  header img {
+    max-height: 100px;
+    height: 100px;
+  }
+
+  .container {
+    margin: 15px 10px;
+    padding: 20px;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+  }
+
+  .doc-box h3 {
+    font-size: 1.2rem;
+  }
+
+  .notice {
+    font-size: 0.9rem;
+  }
+
+  button {
+    font-size: 1.1rem;
+  }
+}
+
+/* Tablet (601px - 768px) */
+@media (min-width: 601px) and (max-width: 768px) {
+  header {
+    height: 120px;
+  }
+
+  header img {
+    max-height: 100px;
+    height: 100px;
+  }
+
+  .container {
+    margin: 20px 15px;
+    padding: 25px;
+  }
+
+  .form-grid {
+    gap: 18px;
+  }
+
+  .doc-box {
+    padding: 20px;
+  }
+}
+
+/* Desktop pequeno (769px - 1024px) */
+@media (min-width: 769px) {
+  .form-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .form-grid .full-width {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Desktop grande (1025px+) */
+@media (min-width: 1025px) {
+  .container {
+    max-width: 1100px;
+    padding: 32px;
+  }
+
+  header {
+    height: 180px;
+  }
+
+  header img {
+    max-height: 140px;
+    height: 140px;
+  }
+}
+
+/* Ajustes para telas muito grandes */
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
+/* Ajustes para orientação landscape em mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  header {
+    height: 100px;
+  }
+
+  header img {
+    max-height: 80px;
+    height: 80px;
+  }
+
+  .container {
+    margin: 10px;
+    padding: 15px;
+  }
+}
+
+/* Melhorias de acessibilidade em telas touch */
+@media (hover: none) and (pointer: coarse) {
+  button {
+    min-height: 44px; /* Tamanho mínimo recomendado para touch */
+  }
+
+  input:not([type="file"]),
+  select,
+  textarea {
+    min-height: 44px;
+    font-size: 16px; /* Evita zoom automático no iOS */
+  }
+
+  .file-item {
+    min-height: 44px;
+    padding: 12px;
+  }
+
+  /* Aumenta o alvo de toque do botão + em telas touch */
+  .btn-add-more-small {
+    width: 38px;
+    height: 38px;
+    font-size: 22px;
+  }
+}

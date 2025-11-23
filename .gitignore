@@ -1,0 +1,49 @@
+# === Generic ===
+.DS_Store
+Thumbs.db
+*.log
+*.pid
+*.seed
+*.swo
+*.swp
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+.env
+
+# Node/Frontend
+node_modules/
+dist/
+frontend/dist/
+
+# IDEs/Editors
+.vscode/
+.idea/
+*.iml
+
+# OS/Temp
+.tmp/
+.temp/
+.cache/
+
+# === Sensitive/Secrets ===
+# Backend secrets
+backend/.env
+backend/token.json
+backend/client_secret_*.json
+
+# Global patterns for common secret files
+*.pem
+*.key
+*.p12
+*_secret_*.json
+client_secret_*.json
+token.json
+
+# Build artifacts
+build/

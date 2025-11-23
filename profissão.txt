@@ -41,7 +41,7 @@
     }
 
 
-- Pensão por morte para esposa (o):
+- Pensão por morte para esposa (o), FILHOS menores de 21 anos ou filho com deficiencia:
     {
         Certidão de casamento
         CNIS do(a) falecido(a) ou carteira de TRABALHO
@@ -56,16 +56,152 @@
         Laudos médicos que comprovem condição(Caso o cônjuge sobrevivente possua alguma incapacidade permanente ou deficiência):
         Caso o falecimento tenha ocorrido por acidente de qualquer natureza(Documentos que 
         comprovem circunstância (ex: Boletim de ocorrência, laudos médicos demostrando a questão de que tenha tido acidente))
-    
+        cpf do filho (a)
+        laudos medicos 
     }
 
 
 Pensão por morte para companheira (o):
     {
-        - RG E CPF DA PESSOA QUE DESEJA SOLICITAR O BENEFÍCIO
-        - RG E CPF DO FALECIDO(A)
+        - RG DA PESSOA QUE DESEJA SOLICITAR O BENEFÍCIO
+        - CPF DA PESSOA QUE DESEJA SOLICITAR O BENEFÍCIO
+        - RG  DO FALECIDO(A) 
+        - CPF DO FALECIDO(A)
         - CERTIDÃO DE ÓBITO
         - COMPROVANTE DE RESIDÊNCIA
         - DOCUENTOS QUE COMPROVEM A UNIÃO ESTÁVEL: (certidão de nascimento de filho em comum); prova de mesmo domicílio (COMPROVANTE DE RESIÊNCIA DO(A) FALECIDO(A) E DO(A) REQUERENTE); conta bancária conjunta; declaração de Imposto de Renda em que um conste como dependente do outro; apólice de seguro em que um seja instituidor e o outro seja beneficiário; ficha de tratamento em instituição médica em que o companheiro conste como responsável pelo segurado, ou vice-versa; cadastro no CadÚnico; entre outros documentos que possam servir para essa comprovação.
         
     }
+
+APOSENTADORIA: 
+{
+digite aqui a sua senha do site ou aplicativo MEU INSS: 
+
+RG e CPF OU CNH legíveis; 
+Comprovante de residência (recente – até 120 dias);
+CTPS – todas as carteiras, mesmo as antigas com páginas de identificação, contratos e anotações; 
+Extrato CNIS completo;PPP – Perfil Profissiográfico Previdenciário (para atividades insalubres/com periculosidade);
+LTCAT, PPRA, PCMSO ou Laudo Técnico relacionado (para atividades insalubres/com periculosidade);
+Certidão de tempo de contribuição (CTC) e declaração com valores das remunerações (em caso de servidor público);Certificado de Reservista (em caso de ter servido o exército); 
+Extrato analítico do FGTS (documento fornecido pela caixa econômica federal);Sentenças trabalhistas que reconheçam vínculo empregatício (em caso de já ter tido algum processo trabalhista, anexar a sentença).Comprovantes de vínculos que NÃO estão reconhecidos no CNIS (carnês do INSS, Recibos, notas fiscais e contratos de prestação de serviços);
+Comprovantes de tempo no exterior (se houver);
+}
+
+APOSENTADORIA RURAL: 
+{
+digite aqui sua senha do site ou aplicativo meu INSS: 
+
+documentos necessários: 
+RG e CPF ou CNH;
+Certidão de nascimento ou casamento (preferencialmente atualizada);
+Comprovante de residência atual (até 120 dias);
+ CTPS – todas as carteiras de trabalho (mesmo sem ter tido registro, as CTPS devem ser enviadas na íntegra, ou seja, em todas as páginas que tiver algo anotado é para ter o envio);
+( ) Bloco de notas do produtor rural
+
+( ) Declaração de exercício rural pelo sindicato (com firma reconhecida)
+
+( ) ITR (Imposto Territorial Rural)
+
+( ) CCIR – Certificado de Cadastro de Imóvel Rural
+
+( ) Notas fiscais de venda de produção rural
+
+( ) Notas fiscais de compra de insumos (sementes, ração, adubo)
+
+( ) Contratos de arrendamento, meação ou parceria rural
+
+( ) Cadastro no INCRA
+
+( ) Comprovantes de crédito rural, financiamentos ou custeio
+
+( ) Notas de produtor de terceiros que mencionem o local de produção do cliente
+
+documentação pública com profissão “lavrador(a)”, “agricultor”, “pescador” etc.
+
+( ) CCIR ou ITR em nome dos pais, irmãos ou cônjuge
+
+( ) DAP/CAF em nome de qualquer membro da família
+
+( ) Contratos de arrendamento/meação em nome de familiar
+
+( ) Notas de produtor em nome do pai/mãe/marido
+
+( ) Certidões que indiquem profissão rural do familiar
+) Certidão de nascimento dos filhos com profissão rural do pai/mãe
+
+( ) Certidão de casamento com profissão “lavrador(a)”
+
+( ) Certidão de alistamento militar com profissão rural
+
+( ) Certidão de óbito de familiares indicando atividade rural
+
+( ) Histórico escolar dos filhos constando endereço rural
+
+( ) Ficha de atendimento médico/hospitalar com endereço rural
+
+( ) Recibos de pagamento por tarefa ou diária
+
+( ) Contratos de trabalho rurais (mesmo não registrados)
+}
+
+
+
+Documentos rurais (para os clientes que trabalharam no meio rural)
+{
+    digite aqui sua senha do site ou aplicativo meu inss: 
+para revisão de aposentadoria ou pensão por morte:
+RG e CPF ou CNH
+Comprovante de residência atualizado (até no máximo 120 dias) 
+Carta de concessão da aposentadoria (se possuir) 
+CTPS – todas as carteiras
+Extrato CNIS atualizado (se possuir) 
+FGTS (extrato analítico) (esse documento é emitido pela própria caixa econômica federal) 
+Holerites/contracheques antigos em que os recibos estejam com valores maiores do que no CNIS; 
+Sentença trabalhista (se houve processo na justiça do trabalho); 
+Notas fiscais/recibos de prestação de serviço (em que não houve recolhimento junto ao INSS); 
+
+PPP – Perfil Profissiográfico Previdenciário, LTCAT, PPRA / PCMSO, Holerites com adicional de insalubridade/periculosidade, Laudos antigos da empresa (em caso do Autor ter trabalhado com fatores de risco: insalubridade ou periculosidade); 
+
+Certidão de Tempo de Contribuição (CTC) (para servidores públicos); 
+
+CAT (se houver acidente de trabalho ou se trata de doença adquirida no trabalho)
+
+}
+Acho que antes de “preencha seus dados” 
+Poderia vim: 
+Cadastro do cliente: 
+E embaixo com
+Letra menor … 
+Informe os seus dados.
+Antes de “tipo de serviço” 
+Por favor coloque “selecione o tipo de serviço”
+
+Antes de documentos necessários, 
+Incluía 
+“Por favor, anexe aqui os documentos necessários para…
+Ao invés de “enviar solicitação” 
+
+“Enviar documentos”
+
+
+O primeiro é “aposentadoria por incapacidade permanente (aposentadoria por invalidez) / auxílio por incapacidade temporária (auxílio doença).Esse tem que estar escrito dessa forma mesmo..
+
+Aqui “Laudos médicos” acrescentar 
+Laudos médicos, exames, receituários.
+Coloca o “do” em Extrato do FGTS
+Acrescentar “Todas as Carteiras de Trabalho
+Comprovante de Residência em nome do cliente e com data que não seja superior a 6 meses, ou seja,  não pode ser antigo.
+Por favor, anexe aqui os documentos Documentos Necessários para o pedido de BPC / LOAS. Retirar a palavra “do Requerente”
+Em todos tem que acrescentar 
+“Outros documentos”
+RG, CPF e carteiras de trabalho  de *todos* os moradores da residência.(Nessa parte possibilita em adcionar mais que um arquivio)
+Acho que em cima poderíamos colocar uma observação, antes do cliente anexar os documentos:Observação: os documentos que serão anexados deverão ser legíveis, se acaso algum dos documentos enviados não estiverem dessa forma, o próprio sistema através de inteligência artificial não fará a leitura do documento e poderá ocorrer o não aceite pelo sistema, por favor, pedimos que retire nova foto do documento de forma legível e tente anexar novamente. Lembre-se que essa documentação tem que realmente estar apta para leitura, pois é ela que irá fazer parte do seu processo administrativo ou judicial
+Pensão por morte cônjuge… 
+
+RG e CPF do Cônjuge sobrevivente
+Comprovante de residência do cônjuge sobrevivente 
+Comprovante de residência do Falecido
+CNIS do falecido (esse documento é solicitado junto ao inss)
+Sobre a pensão para companheiro 
+Comprovantes de união estável (pelo menos 3) Possibilitar em adcionar mais que um arquivo tmbm 
+para os arquvios que tem mais que um do mesmo campo cria outra pasta dentreo da propria pasta dele e coloca os arquivos la

@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+
+:root {
+  --primary: #0f0a0a;
+  --primary-dark: #262729;
+  --bg: #f5f7fb;
+  --card-bg: #ffffff;
+  --radius: 14px;
+  --spacing-unit: 20px;
+  font-family: "Inter", Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: var(--bg);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  text-transform: none;
+  overflow-x: hidden; /* Previne scroll horizontal */
+}
+
+/* Garante que imagens sejam responsivas */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Capitalização padrão - primeira letra maiúscula */
+h1, h2, h4, h5, h6 {
+  text-transform: capitalize;
+}
+
+/* Inputs e selects mantêm o texto como digitado */
+input, select, textarea, button {
+  text-transform: none;
+}
+
+#root {
+  min-height: 100vh;
+}
