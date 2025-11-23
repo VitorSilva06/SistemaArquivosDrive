@@ -1,3 +1,4 @@
+apiVersion: v1
 services:
   - type: web
     name: sistema-arquivos-drive-backend
