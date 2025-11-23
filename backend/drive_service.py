@@ -1,6 +1,7 @@
 """Serviço de integração com Google Drive."""
 import json
 import logging
+import os
 import pickle
 from pathlib import Path
 from typing import Optional
@@ -40,15 +41,29 @@ class DriveService:
         """
         creds = None
         token_path = Path(TOKEN_FILE)
+
+        # Semeia token a partir de variável de ambiente (opcional)
+        token_json_env = os.getenv("GOOGLE_TOKEN_JSON")
+        if token_json_env and not token_path.exists():
+            try:
+                token_path.write_text(token_json_env, encoding="utf-8")
+                logger.info("Token escrito a partir da variável de ambiente GOOGLE_TOKEN_JSON")
+            except Exception as e:
+                logger.warning(f"Falha ao escrever token da env: {e}")
         
-        # Verifica se já existe token salvo
+        # Carrega token salvo (formato JSON preferencial). Mantém compatibilidade com pickle antigo.
         if token_path.exists():
             try:
-                with open(token_path, 'rb') as token:
-                    creds = pickle.load(token)
-                logger.info("Token de autenticação carregado do arquivo")
-            except Exception as e:
-                logger.warning(f"Erro ao carregar token: {e}")
+                creds = Credentials.from_authorized_user_file(str(token_path), SCOPES)
+                logger.info("Token (JSON) carregado do arquivo")
+            except Exception as e_json:
+                logger.warning(f"Falha ao carregar token JSON: {e_json}. Tentando pickle legado.")
+                try:
+                    with open(token_path, "rb") as token_fh:
+                        creds = pickle.load(token_fh)
+                    logger.info("Token (pickle legado) carregado do arquivo")
+                except Exception as e_pickle:
+                    logger.warning(f"Erro ao carregar token legado: {e_pickle}")
         
         # Se não há credenciais válidas, faz login
         if not creds or not creds.valid:
@@ -71,11 +86,10 @@ class DriveService:
                     logger.error(f"Erro na autenticação: {e}")
                     raise RuntimeError(f"Falha na autenticação: {e}") from e
             
-            # Salva o token para uso futuro
+            # Salva o token em formato JSON para uso futuro
             try:
-                with open(token_path, 'wb') as token:
-                    pickle.dump(creds, token)
-                logger.info("Token salvo para uso futuro")
+                token_path.write_text(creds.to_json(), encoding="utf-8")
+                logger.info("Token salvo (JSON) para uso futuro")
             except Exception as e:
                 logger.warning(f"Erro ao salvar token: {e}")
         
