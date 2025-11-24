@@ -121,7 +121,7 @@ function App() {
     }
 
     const fieldStatus = buildFieldStatus();
-    
+
     // Cria mapeamento de arquivo -> campo de origem
     const fileFieldMap = {};
     selectedService.fields.forEach((field) => {
@@ -165,12 +165,16 @@ function App() {
       const response = await fetch(API_URL, {
         method: "POST",
         body: formData,
+        mode: "cors",
+        headers: {
+          "Accept": "*/*"
+        }
       });
       const payload = await response.json();
       if (!response.ok) {
         throw new Error(payload.detail || "Erro ao enviar os documentos.");
       }
-      
+
       // Armazena arquivos rejeitados
       if (payload.arquivos_rejeitados?.length > 0) {
         setRejectedFiles(payload.arquivos_rejeitados);
