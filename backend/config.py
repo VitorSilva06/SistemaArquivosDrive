@@ -8,16 +8,13 @@ BASE_DIR = Path(__file__).parent
 
 load_dotenv()
 
-# Google Drive OAuth / Service Account
+# Google Drive OAuth (token persistente)
 CLIENT_SECRET_FILE = os.getenv(
     "GOOGLE_CLIENT_SECRET_FILE",
     str(BASE_DIR / "client_secret_225116848186-m0i8a6vcoh29nkj0kkvimce1jchevqq4.apps.googleusercontent.com.json")
 )
 TOKEN_FILE = os.getenv("GOOGLE_TOKEN_FILE", "token.json")
 GOOGLE_DRIVE_ROOT_FOLDER_ID = os.getenv("GOOGLE_DRIVE_ROOT_FOLDER_ID", "")
-
-# Detecta uso de Service Account (produção)
-USE_SERVICE_ACCOUNT = bool(os.getenv("GOOGLE_CLIENT_SECRET_JSON"))
 
 # Scopes do Google Drive
 SCOPES = [
@@ -47,7 +44,7 @@ MIN_PHONE_LENGTH = 10
 LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO")
 
 # Verificações de segurança
-if not USE_SERVICE_ACCOUNT and not Path(CLIENT_SECRET_FILE).exists():
+if not Path(CLIENT_SECRET_FILE).exists():
     raise FileNotFoundError(
         f"Arquivo de credenciais não encontrado: {CLIENT_SECRET_FILE}. "
         f"Verifique se o arquivo existe em {BASE_DIR}"

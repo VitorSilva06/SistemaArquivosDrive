@@ -8,7 +8,6 @@ from typing import Optional
 
 from google.auth.transport.requests import Request as GoogleAuthRequest
 from google.oauth2.credentials import Credentials
-from google.oauth2.service_account import Credentials as SACredentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
@@ -19,7 +18,6 @@ from config import (
     TOKEN_FILE,
     GOOGLE_DRIVE_ROOT_FOLDER_ID,
     SCOPES,
-    USE_SERVICE_ACCOUNT,
 )
 
 logger = logging.getLogger(__name__)
@@ -35,22 +33,65 @@ class DriveService:
         self._authenticate()
     
     def _authenticate(self) -> None:
-        """Autentica com Google Drive usando Service Account.
-
-        Em produção (Render), não há fluxo interativo. Lemos o JSON da Service Account
-        a partir da variável GOOGLE_SERVICE_ACCOUNT_JSON e criamos as credenciais.
         """
-        from google.oauth2.service_account import Credentials as SACredentials
+        Autentica com Google Drive usando OAuth 2.0 com token persistente.
+        - Em produção: não há fluxo interativo. O token deve estar disponível em
+          GOOGLE_TOKEN_FILE ou via GOOGLE_TOKEN_JSON (que será gravado em arquivo se necessário).
+        - Em desenvolvimento: se não houver token, abre o fluxo local (InstalledAppFlow).
+        """
+        creds = None
+        token_path = Path(TOKEN_FILE)
 
-        service_json = os.getenv("GOOGLE_SERVICE_ACCOUNT_JSON")
-        if not service_json:
-            raise RuntimeError("Variável GOOGLE_SERVICE_ACCOUNT_JSON não configurada")
-
-        try:
-            info = json.loads(service_json)
-            creds = SACredentials.from_service_account_info(info, scopes=SCOPES)
-        except Exception as e:
-            raise RuntimeError(f"Falha ao carregar credenciais da Service Account: {e}") from e
+        # Semeia token a partir de variável de ambiente (opcional) em produção
+        token_json_env = os.getenv("GOOGLE_TOKEN_JSON")
+        if token_json_env and not token_path.exists():
+            try:
+                token_path.write_text(token_json_env, encoding="utf-8")
+                logger.info("Token escrito a partir da variável de ambiente GOOGLE_TOKEN_JSON")
+            except Exception as e:
+                logger.warning(f"Falha ao escrever token da env: {e}")
+        
+        # Carrega token salvo (formato JSON preferencial). Mantém compatibilidade com pickle antigo.
+        if token_path.exists():
+            try:
+                creds = Credentials.from_authorized_user_file(str(token_path), SCOPES)
+                logger.info("Token (JSON) carregado do arquivo")
+            except Exception as e_json:
+                logger.warning(f"Falha ao carregar token JSON: {e_json}. Tentando pickle legado.")
+                try:
+                    with open(token_path, "rb") as token_fh:
+                        creds = pickle.load(token_fh)
+                    logger.info("Token (pickle legado) carregado do arquivo")
+                except Exception as e_pickle:
+                    logger.warning(f"Erro ao carregar token legado: {e_pickle}")
+        
+        # Se não há credenciais válidas, tenta renovar ou iniciar fluxo local (ambiente dev)
+        if not creds or not creds.valid:
+            if creds and creds.expired and creds.refresh_token:
+                try:
+                    creds.refresh(GoogleAuthRequest())
+                    logger.info("Token de autenticação renovado")
+                except Exception as e:
+                    logger.error(f"Erro ao renovar token: {e}")
+                    creds = None
+            
+            if not creds:
+                try:
+                    flow = InstalledAppFlow.from_client_secrets_file(
+                        CLIENT_SECRET_FILE, SCOPES
+                    )
+                    creds = flow.run_local_server(port=0)
+                    logger.info("Nova autenticação realizada")
+                except Exception as e:
+                    logger.error(f"Erro na autenticação: {e}")
+                    raise RuntimeError(f"Falha na autenticação: {e}") from e
+            
+            # Salva o token em formato JSON para uso futuro
+            try:
+                token_path.write_text(creds.to_json(), encoding="utf-8")
+                logger.info("Token salvo (JSON) para uso futuro")
+            except Exception as e:
+                logger.warning(f"Erro ao salvar token: {e}")
 
         self.credentials = creds
         self.service = build(
@@ -58,8 +99,9 @@ class DriveService:
             "v3",
             credentials=creds,
             cache_discovery=False,
+            static_discovery=False,
         )
-        logger.info("Serviço do Google Drive inicializado (Service Account)")
+        logger.info("Serviço do Google Drive inicializado")
     
     def find_file_by_name(
         self,
