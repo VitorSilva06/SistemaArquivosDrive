@@ -33,7 +33,7 @@ MAX_FOLDER_NAME_LENGTH = 100
 MAX_FILENAME_LENGTH = 200
 
 # Segurança
-ALLOWED_ORIGINS = os.getenv("ALLOWED_ORIGINS", "*").split(",")
+ALLOWED_ORIGINS = os.getenv("ALLOWED_ORIGINS", "").split(",")
 MAX_UPLOAD_SIZE = MAX_FILESIZE_MB * 1024 * 1024  # em bytes
 
 # Validações
