@@ -33,10 +33,10 @@ export const servicesConfig = {
           "Comprovante de Residência em nome do cliente e com data que não seja superior a 6 meses, ou seja, não pode ser antigo",
       },
       { id: "inss-ctps", label: "Todas as Carteiras de Trabalho", multiple: true },
-      { id: "inss-fgts", label: "Extrato do FGTS" },
+      { id: "inss-fgts", label: "Extrato Analítico do FGTS" },
       {
         id: "inss-laudos",
-        label: "Laudos médicos, exames, receituários",
+        label: "Laudos médicos, exames e receitas",
         multiple: true,
       },
       {
@@ -68,7 +68,7 @@ export const servicesConfig = {
       {
         id: "bpc-moradores",
         label:
-          "RG, CPF e carteiras de trabalho de *todos* os moradores da residência",
+          "RG, CPF, carteira de trabalho, comprovante de residência de todas as pessoas que moram na mesma residência que o requerente",
         multiple: true,
       },
       {
@@ -123,6 +123,11 @@ export const servicesConfig = {
         multiple: true,
       },
       {
+        id: "trab-carteira",
+        label: "Carteira de trabalho",
+        multiple: true
+      },
+      {
         id: "trab-fotos",
         label: "Fotografias do trabalho",
         multiple: true,
@@ -152,6 +157,12 @@ export const servicesConfig = {
       },
     ],
     fields: [
+      {
+        id: "conj-rgfalecido", label: "RG do(a) falecido(a)"
+      },
+      {
+        id: "conj-cpffalecido", label: "CPF do(a) falecido(a)"
+      },
       { id: "conj-casamento", label: "Certidão de casamento" },
       {
         id: "conj-cnis",
@@ -215,6 +226,8 @@ export const servicesConfig = {
       },
       { id: "comp-rgfal", label: "RG do falecido(a)" },
       { id: "comp-cpffal", label: "CPF do falecido(a)" },
+      {id: "comp-carteira", label: "Todas as carteiras de trabalho do falecido(a)"},  
+      {id: "comp-cnis", label: "CNIS do falecido(a) (esse documento é fornecido pelo INSS)"},  
       { id: "comp-obito", label: "Certidão de óbito" },
       { id: "comp-comp", label: "Comprovante de residência" },
       {
@@ -311,7 +324,8 @@ export const servicesConfig = {
       },
     ],
     fields: [
-      { id: "rural-rg-cpf", label: "RG e CPF ou CNH" },
+      { id: "rural-rg", label: "RG"},
+      { id: "rural-cpf", label: "CPF" },
       {
         id: "rural-certidao",
         label: "Certidão de nascimento ou casamento (preferencialmente atualizada)",
@@ -368,7 +382,7 @@ export const servicesConfig = {
       {
         id: "rural-documentacao-publica",
         label:
-          "Documentação pública com profissão 'lavrador(a)', 'agricultor', 'pescador' etc",
+          "Documentação pública com profissão 'lavrador(a)', 'agricultor', 'pescador', etc",
         multiple: true,
       },
       {
@@ -442,7 +456,7 @@ export const servicesConfig = {
   },
   documentos_rurais: {
     id: "documentos_rurais",
-    name: "Documentos rurais (para os clientes que trabalharam no meio rural) - Para revisão de aposentadoria ou pensão por morte",
+    name: "Revisão de aposentadoria ou pensão por morte",
     notice:
       "Observação: Os documentos que serão anexados deverão ser legíveis, se acaso algum dos documentos enviados não estiverem dessa forma, o próprio sistema através de inteligência artificial não fará a leitura do documento e poderá ocorrer o não aceite pelo sistema, por favor, pedimos que retire nova foto do documento de forma legível e tente anexar novamente. Lembre-se que essa documentação tem que realmente estar apta para leitura, pois é ela que irá fazer parte do seu processo administrativo ou judicial.",
     extraFields: [
@@ -506,6 +520,7 @@ export const servicesConfig = {
         label:
           "CAT (se houver acidente de trabalho ou se trata de doença adquirida no trabalho)",
       },
+      {id: "rurais-documentos", label: "Documentos rurais (para os clientes que trabalharam no meio rural)",multiple: true },
       { id: "rurais-outros", label: "Outros documentos", multiple: true },
     ],
   },

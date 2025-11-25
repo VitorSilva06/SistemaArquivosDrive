@@ -16,10 +16,8 @@ header {
 }
 
 header img {
-  max-height: 140px;
-  height: 140px;
-  width: auto;
-  object-fit: contain;
+  width: 300px;
+  height: auto;
 }
 
 .container {
@@ -92,7 +90,7 @@ label {
   font-weight: 600;
   margin-bottom: 6px;
   display: block;
-  font-size: 0.9rem;
+  font-size: 1.9rem;
   color: #444;
   text-transform: none;
 }
@@ -104,7 +102,7 @@ textarea {
   padding: 14px;
   border-radius: var(--radius);
   border: 1px solid #ccc;
-  font-size: 1rem;
+  font-size: 1.2rem;
   transition: border-color 0.2s, box-shadow 0.2s;
   box-sizing: border-box;
   background-color: #fcfcfc;
@@ -154,7 +152,7 @@ textarea:focus {
 
 .doc-box h3 {
   color: var(--primary-dark);
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   margin-top: 0;
   margin-bottom: 5px;
   padding-bottom: 10px;
@@ -166,7 +164,7 @@ textarea:focus {
 }
 
 .notice {
-  font-size: 0.95rem;
+  font-size: 1.3rem;
   font-weight: 400;
   color: #555;
   background: #e0e7f1;
