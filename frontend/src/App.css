@@ -14,6 +14,7 @@ body {
   background: var(--bg);
   font-size: 20px; /* Desktop/tablets - AUMENTADO */
   line-height: 1.55;
+  text-align: justify;
 }
 
 /* Mobile até 600px — fonte maior */
@@ -139,6 +140,10 @@ textarea:focus {
   border-color: var(--primary);
   outline: none;
   box-shadow: 0 0 0 4px rgba(15, 10, 10, 0.1);
+}
+
+input[type="file"] {
+  color: transparent; /* esconde o texto "Nenhum arquivo escolhido" */
 }
 
 .full-width {
