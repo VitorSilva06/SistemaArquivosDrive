@@ -163,11 +163,7 @@ input[type="file"] {
 
 .doc-box h3 {
   color: var(--primary-dark);
-<<<<<<< Updated upstream
   font-size: 1.7rem; /* AUMENTADO */
-=======
-  font-size: 1.4rem;
->>>>>>> Stashed changes
   margin-top: 0;
   margin-bottom: 5px;
   padding-bottom: 10px;
@@ -175,11 +171,7 @@ input[type="file"] {
 }
 
 .notice {
-<<<<<<< Updated upstream
   font-size: 1.35rem; /* AUMENTADO */
-=======
-  font-size: 0.95rem;
->>>>>>> Stashed changes
   font-weight: 400;
   color: #555;
   background: #e0e7f1;
