@@ -81,7 +81,7 @@ async def health_check():
     return {"status": "healthy", "drive_service": drive_service is not None}
 
 
-@app.post("/api/submit")
+@app.post("/api")
 async def submit_form(
     nome: str = Form(...),
     telefone: str = Form(...),

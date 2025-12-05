@@ -2,8 +2,8 @@ import { useMemo, useRef, useState } from "react";
 import "./App.css";
 import { serviceOptions, servicesConfig } from "./data/services";
 
-const API_BASE = import.meta.env.VITE_API_URL ?? "http://localhost:8000";
-const API_URL = `${API_BASE}/api/submit`;
+const API_BASE = import.meta.env.VITE_API_URL ?? "http://localhost:8000/api";
+const API_URL = `${API_BASE}`;
 
 const defaultForm = {
   nome: "",
